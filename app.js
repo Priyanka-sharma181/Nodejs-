@@ -12,5 +12,16 @@ const chalk = require("chalk")
 const sum = add(4,-2)
 // console.log(sum);
 const notes = getNotes()
-console.log(chalk.bold.blue(notes));
+// console.log(chalk.blue.inverse.bold(notes));
 // console.log(validator.isEmail("priyanka@gmail.com"));
+// console.log(process.argv);
+
+// the process.argv returns all the command line argument
+const command = process.argv[2]
+
+if(command=='Add'){
+    console.log("adding notes");
+}
+else if(command=='removing'){
+console.log("removing notes");
+}
