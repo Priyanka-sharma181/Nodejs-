@@ -17,7 +17,7 @@ yargs.command({
         }
 
     },
-    handler: function (argv){
+    handler(argv){
        notes.addNote(argv.title,argv.body)
 
     }
@@ -34,10 +34,21 @@ yargs.command({
         }
 
     },
-    handler: function (argv){
+    handler(argv){
        notes.removeNotes(argv.title)
 
     }
 })
+
+yargs.command({
+    command:'list',
+    describe: 'list of node',
+   
+    handler(argv){
+
+        notes.listNotes()
+    }
+})
+
 
 console.log(yargs.argv);

@@ -34,7 +34,13 @@ const addNote = function(title,body){
     
     }
 
+const listNotes = function(){
+    const notes = loadNote()
+    notes.forEach(note => {
+        console.log(note);
+    });
 
+}
 const saveNote = function(notes){
     const dataJson = JSON.stringify(notes)
     fs.writeFileSync("notes.json",dataJson)
@@ -59,4 +65,5 @@ const loadNote = function(){
 module.exports = {
     getNotes:getNotes, 
     addNote:addNote,
-removeNotes:removeNotes}
+removeNotes:removeNotes,
+listNotes:listNotes}
