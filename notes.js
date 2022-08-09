@@ -1,4 +1,5 @@
 const fs = require('fs')
+const chalk = require("chalk")
 const getNotes = function(){
     return "your notes......"
 
@@ -23,6 +24,16 @@ const addNote = function(title,body){
         console.log("note title taken");
      }
     }
+    const removeNotes = function(title){
+        const notes = loadNote()
+        const notesToKeep = notes.filter((note)=>{
+            console.log(note);
+            return note.title!==title
+        })
+       saveNote(notesToKeep)
+    
+    }
+
 
 const saveNote = function(notes){
     const dataJson = JSON.stringify(notes)
@@ -42,6 +53,10 @@ const loadNote = function(){
      }
 
 }
+
+
+
 module.exports = {
     getNotes:getNotes, 
-    addNote:addNote}
+    addNote:addNote,
+removeNotes:removeNotes}
