@@ -1,5 +1,6 @@
 const fs = require('fs')
 const chalk = require("chalk")
+const { title } = require('process')
 const getNotes = function(){
     return "your notes......"
 
@@ -41,6 +42,7 @@ const listNotes = function(){
     });
 
 }
+
 const saveNote = function(notes){
     const dataJson = JSON.stringify(notes)
     fs.writeFileSync("notes.json",dataJson)
@@ -66,4 +68,5 @@ module.exports = {
     getNotes:getNotes, 
     addNote:addNote,
 removeNotes:removeNotes,
-listNotes:listNotes}
+listNotes:listNotes,
+}
