@@ -1,27 +1,19 @@
-// const fs = require("fs")
-// it is creating file or write text 
-// fs.writeFileSync('notes.txt','this  was created by node.js')
- 
-// append data in existing file 
-// fs.appendFileSync('notes.txt',  "i am priyanka")
-
-const add = require('./utils.js')
-const getNotes = require("./notes")
-const validator = require('validator')
 const chalk = require("chalk")
-const sum = add(4,-2)
-// console.log(sum);
-const notes = getNotes()
-// console.log(chalk.blue.inverse.bold(notes));
-// console.log(validator.isEmail("priyanka@gmail.com"));
-// console.log(process.argv);
+const yargs = require("yargs")
+yargs.command({
+    command:'add',
+    describe: 'adding a new note',
+    handler: ()=>{
+        console.log(chalk.blue("adding a new note "));
+    }
+})
 
-// the process.argv returns all the command line argument
-const command = process.argv[2]
+yargs.command({
+    command:'remove',
+    describe: 'remove a new note',
+    handler: ()=>{
+        console.log(chalk.red("remove a new note"));
+    }
+})
 
-if(command=='Add'){
-    console.log("adding notes");
-}
-else if(command=='removing'){
-console.log("removing notes");
-}
+console.log(yargs.argv);
